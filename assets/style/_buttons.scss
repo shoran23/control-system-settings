@@ -1,0 +1,82 @@
+@use 'base';
+
+%standard-button-inactive {
+    border: 1px solid base.$primary-color;
+    background-color: base.$primary-color;
+    border-radius: 10px;
+    color: base.$primary-background-color;
+}
+%standard-button-active {
+    border: 1px solid base.$primary-color-active;
+    background-color: base.$primary-color-active;
+    border-radius: 10px;
+    color: base.$primary-background-color;    
+}
+
+%secondary-button-inactive {
+    border-radius: 10px;
+    background-color: base.$secondary-color;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+%link-button-inactive {
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+%link-button-active {
+    border: none;
+    background-color: base.$secondary-color;
+    outline: none;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+    border-bottom: none;
+}
+%add-button {
+    border: none;
+    outline: none;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+    background-color: #13c749;
+    border-radius: 10px;
+}
+%add-button-clicked {
+    border: none;
+    outline: none;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+    background-color: #42cf6c;
+    border-radius: 10px;
+}
+%close-button {
+    border: none;
+    outline: none;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+    background-color: #ca3b3b;
+    border-radius: 10px;
+}
+%close-button-clicked {
+    border: none;
+    outline: none;
+    color: white;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+    background-color: #e24e4e;
+    border-radius: 10px;
+}
+%link-blue-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(7, 118, 209);
+}
+%link-blue-button-pressed {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: gray;
+}
+

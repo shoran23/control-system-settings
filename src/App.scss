@@ -1,0 +1,33 @@
+@use '/assets/style/buttons';
+@use '/assets/style/base';
+
+* {
+    font-family: base.$font-stack;
+}
+body {
+    margin: 0;
+}
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+}
+.standard-button-inactive {
+    @extend %standard-button-inactive;
+}
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.footer-p {
+    color: white;
+    font-size: 11px;
+    margin-left: 0.5%;
+}
