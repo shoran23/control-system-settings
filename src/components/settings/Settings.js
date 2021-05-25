@@ -14,7 +14,7 @@ class Settings extends React.Component {
         selectedComponent: 'Sources',
         showAccount: false,
         username: '',
-        modal: 'sending',
+        modal: null,
     }
     selectComponent = component => {
         this.setState({selectedComponent: component})
