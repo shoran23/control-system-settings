@@ -39,7 +39,12 @@ module.exports = {
                     dataUrlCondition: {
                         maxSize: 3 * 1024
                     }
-                }
+                },
+                use: [
+                    {
+                        loader: 'file-loader'
+                    }
+                ]
             }
         ]
     },

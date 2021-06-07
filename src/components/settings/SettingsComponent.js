@@ -4,6 +4,7 @@ import Destinations from './settings-components/Destinations'
 import Displays from './settings-components/Displays'
 import ProgramAudio from './settings-components/ProgramAudio'
 import SettingsComponentModal from './settings-components/modal/SettingsComponentModal'
+import TouchPanel from './settings-components/TouchPanel'
 
 class SettingsComponent extends React.Component {
     returnSelectedComponent = component => {
@@ -61,6 +62,16 @@ class SettingsComponent extends React.Component {
                     getApi={this.props.getApi}
                     postApi={this.props.postApi}
                     handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
+                />
+            )
+            case 'Touch Panel': return (
+                <TouchPanel 
+                    // states
+                    touchPanel={this.props.configuration.touchPanel}
+                    // methods
+                    handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
+                    getApi={this.props.getApi}
+                    postApi={this.props.postApi}
                 />
             )
         }

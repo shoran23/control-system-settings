@@ -10,7 +10,7 @@ import {get} from '../../api/getRequests'
 
 class Settings extends React.Component {
     state = {
-        components: ['Room','Sources','Destinations','Program Audio','Displays', 'Audio'],
+        components: ['Room','Sources','Destinations','Program Audio','Displays', 'Audio','Touch Panel'],
         selectedComponent: 'Sources',
         showAccount: false,
         username: '',
@@ -53,6 +53,7 @@ class Settings extends React.Component {
                     getApi={this.props.getApi}
                     postApi={this.props.postApi}
                     handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
+                    handleConfigurationThreeKeys={this.props.handleConfigurationThreeKeys}
                 />
                 <SettingsFooter/>
                 {this.state.showAccount ?

@@ -21,6 +21,10 @@ class App extends React.Component {
                 address: '',
                 transport_type: '',
                 mics: []
+            },
+            touchPanel: {
+                primaryColor: '',
+                secondaryColor: ''
             }
         },
     }
@@ -41,6 +45,11 @@ class App extends React.Component {
         let configuration = this.state.configuration
         configuration[key][item] = value
         this.setState({configuration})
+    }
+    handleConfigurationThreeKeys = (key1,key2,key3,value) => {
+        let configuration = this.state.configuration
+        configuration[key1][key2][key3] = value
+        this.setState({configuration})    
     }
     handleConfigurationArrayAppend = (array,item) => {
         let configuration = this.state.configuration
