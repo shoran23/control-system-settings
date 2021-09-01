@@ -1,5 +1,5 @@
 import React from 'React'
-import {getMidpoints} from '../../../api/getRequests'
+import {getMidpoints} from '../../../../api/getRequests'
 
 class MidpointIndexItem extends React.Component {
     render() {
@@ -18,18 +18,16 @@ class SystemMidpointIndexItem extends React.Component {
             <div className='physical-io-midpoint-system-index'>
                 <p>{this.props.midpoint.make}</p>
                 <p>{this.props.midpoint.model}</p>
-                <button>Settings</button>
+                <button onClick={()=> this.props.handleSelectedMidpoint(this.props.midpoint)}>Settings</button>
                 <button onClick={()=> this.props.handleRemoveFromSystem(this.props.index)}>Remove</button>
             </div>
         )
     }
 }
-class PhysicalIO extends React.Component {
-    state = {
-        systemMidpoints: [],    // this will be moved to the configuration
+class PhysicalIOConfig extends React.Component {
+    state = {                   
         midpoints: [],
         midpointResults: [],
-        selectedMidpoint: null,
         searchText: ''
     }
     retrieveMidpoints = () => {
@@ -52,18 +50,18 @@ class PhysicalIO extends React.Component {
         this.handleSearchMidpoints()
     }
     handleAddToSystem = (index) => {
-        let systemMidpoints = this.state.systemMidpoints
+        let midpoints = this.props.configuration.io.midpoints
         if(this.state.searchText === '') {
-            systemMidpoints.push(this.state.midpoints[index])
+            midpoints.push(this.state.midpoints[index])
         } else {
-            systemMidpoints.push(this.state.midpointResults[index])
+            midpoints.push(this.state.midpointResults[index])
         }
-        this.setState({systemMidpoints})
+        this.props.handleConfigurationIoMidpointChange(midpoints)
     }
     handleRemoveFromSystem = (index) => {
-        let systemMidpoints = this.state.systemMidpoints
-        systemMidpoints.splice(index,1)
-        this.setState({systemMidpoints})
+        let midpoints = this.props.configuration.io.midpoints
+        midpoints.splice(index,1)
+        this.props.handleConfigurationIoMidpointChange(midpoints)
     }
     render() {
         return (
@@ -79,10 +77,9 @@ class PhysicalIO extends React.Component {
                 <div id='physical-io-component-body' className='component-body'>
                     <div id='physical-io-header'>
 
-                        
-                            {this.state.systemMidpoints.length > 0 ?
+                            {this.props.configuration.io.midpoints.length > 0 ?
                                 <React.Fragment>
-                                    {this.props.io.midpoints.map((midpoint,index) => (
+                                    {this.props.configuration.io.midpoints.map((midpoint,index) => (
                                         <SystemMidpointIndexItem
                                             // states
                                             key={index}
@@ -90,6 +87,7 @@ class PhysicalIO extends React.Component {
                                             midpoint={midpoint}
                                             // methods
                                             handleRemoveFromSystem={this.handleRemoveFromSystem}
+                                            handleSelectedMidpoint={this.props.handleSelectedMidpoint}
                                         />
                                     ))}
                                 </React.Fragment>
@@ -97,7 +95,6 @@ class PhysicalIO extends React.Component {
                                 <h3>Add system midpoints from the list below.</h3>
                             }
 
-                     
                     </div>
                     <div id='physical-io-search'>
                         <input
@@ -150,4 +147,4 @@ class PhysicalIO extends React.Component {
         this.retrieveMidpoints()
     }
 }
-export default PhysicalIO
+export default PhysicalIOConfig

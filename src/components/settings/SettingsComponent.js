@@ -1,5 +1,5 @@
 import React from 'react'
-import PhysicalIO from './settings-components/PhysicalIO'
+import PhysicalIO from './settings-components/physical_io/PhysicalIO'
 import Sources from './settings-components/Sources'
 import Destinations from './settings-components/Destinations'
 import Displays from './settings-components/Displays'
@@ -14,7 +14,9 @@ class SettingsComponent extends React.Component {
             case 'Physical IO': return (
                 <PhysicalIO
                     // states
-                    io={this.props.io}
+                    configuration={this.props.configuration}
+                    // methods
+                    handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
                 />
             )
             case 'Sources':  return (

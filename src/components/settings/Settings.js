@@ -44,7 +44,6 @@ class Settings extends React.Component {
                     selectedComponent={this.state.selectedComponent}
                     configuration={this.props.configuration}
                     modal={this.state.modal}
-                    io={this.props.io}
                     // methods
                     handleConfigurationArrayChange={this.props.handleConfigurationArrayChange}
                     handleConfigurationArrayAppend={this.props.handleConfigurationArrayAppend}
@@ -55,6 +54,7 @@ class Settings extends React.Component {
                     postApi={this.props.postApi}
                     handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
                     handleConfigurationThreeKeys={this.props.handleConfigurationThreeKeys}
+                    handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
                 />
                 <SettingsFooter/>
                 {this.state.showAccount ?

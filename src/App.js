@@ -64,6 +64,11 @@ class App extends React.Component {
         configuration[array].splice(index,1)
         this.setState({configuration})
     }
+    handleConfigurationIoMidpointChange = (midpoints) => {
+        let configuration = this.state.configuration
+        configuration.io.midpoints = midpoints
+        this.setState({configuration})
+    }
     // API
     getApi = (route) => {
         get(route)
@@ -105,7 +110,6 @@ class App extends React.Component {
                         // states
                         configuration={this.state.configuration}    
                         username={this.state.username}
-                        io={this.state.io}
                         // methods
                         handleConfigurationArrayChange={this.handleConfigurationArrayChange}
                         handleConfigurationArrayAppend={this.handleConfigurationArrayAppend}
@@ -115,6 +119,7 @@ class App extends React.Component {
                         postApi={this.postApi}
                         handleStateApp={this.handleState}
                         handleConfigurationKeyItem={this.handleConfigurationKeyItem}
+                        handleConfigurationIoMidpointChange={this.handleConfigurationIoMidpointChange}
                     />
                 :
                     <Welcome
