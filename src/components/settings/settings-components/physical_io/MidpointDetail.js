@@ -7,11 +7,13 @@ class MidpointDetail extends React.Component {
 
                 <div className='component-header'>
                     <h1>{`${this.props.selectedMidpoint.make} ${this.props.selectedMidpoint.model}`}</h1>
-                    <button>Return</button>
+                    <button onClick={()=> this.props.handleSelectedMidpoint(null)}>Return</button>
                 </div>
 
                 <div className='component-body'>
-                    
+                    <div className='midpoint-body'>
+                        midpoint body
+                    </div>
                 </div>
             </div>
         )
