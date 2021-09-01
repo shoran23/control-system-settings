@@ -7,7 +7,7 @@ import {post} from './api/postRequest'
 
 class App extends React.Component {
     state = {
-        signin: false,
+        signin: true,
         signinMessage: '',
         username: '',
         password: '',
@@ -74,7 +74,7 @@ class App extends React.Component {
         get(route)
         .then(resJson => {
             let configuration = {}
-            if(route === 'configuration') {
+            if(route === '') {
                 configuration = resJson[route]
             } else {
                 configuration[route] = resJson[route]
@@ -84,17 +84,16 @@ class App extends React.Component {
     }
     postApi = (route) => {
         let body = {}
-        if(route === 'configuration') {
+        if(route === '') {
             body = this.state.configuration
         } else {
             body = this.state.configuration[route]
         }
-        console.log('body = ',body)
         post(route,body)
         .then(resJson => console.log(resJson))
         .then(resJson => {
             let configuration = {}
-            if(route === 'configuration') {
+            if(route === '') {
                 configuration = resJson[bodyKey]
             } else {
                 configuration[route] = resJson[route]

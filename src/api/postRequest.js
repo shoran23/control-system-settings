@@ -4,7 +4,7 @@ import {port} from './requestData'
 // universal post request
 export let post = (route,body) => {
     return (
-        fetch(address + port + '/' + route, {
+        fetch(address + port + '/cws/settings/' + route, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

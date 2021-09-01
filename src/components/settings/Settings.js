@@ -71,7 +71,7 @@ class Settings extends React.Component {
         )
     }
     componentDidMount() {
-        this.props.getApi('configuration')
+        this.props.getApi('')
     }
 }
 export default Settings
