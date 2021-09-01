@@ -33,7 +33,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\/(png|jpg|svg)$/i,
+                test: /\.(png|jpg|svg)$/i,
                 type: 'asset',
                 parser: {
                     dataUrlCondition: {

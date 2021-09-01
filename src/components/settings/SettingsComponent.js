@@ -1,14 +1,22 @@
 import React from 'react'
+import PhysicalIO from './settings-components/PhysicalIO'
 import Sources from './settings-components/Sources'
 import Destinations from './settings-components/Destinations'
 import Displays from './settings-components/Displays'
 import ProgramAudio from './settings-components/ProgramAudio'
 import SettingsComponentModal from './settings-components/modal/SettingsComponentModal'
 import TouchPanel from './settings-components/TouchPanel'
+import ConfigurationMain from './settings-components/configuration/ConfigurationMain'
 
 class SettingsComponent extends React.Component {
     returnSelectedComponent = component => {
         switch(component) {
+            case 'Physical IO': return (
+                <PhysicalIO
+                    // states
+                    io={this.props.io}
+                />
+            )
             case 'Sources':  return (
                 <Sources
                     // states
@@ -72,6 +80,12 @@ class SettingsComponent extends React.Component {
                     handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
                     getApi={this.props.getApi}
                     postApi={this.props.postApi}
+                />
+            )
+            case 'Configuration': return (
+                <ConfigurationMain
+                    // states
+                    configuration={this.props.configuration}
                 />
             )
         }

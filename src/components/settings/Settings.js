@@ -10,7 +10,7 @@ import {get} from '../../api/getRequests'
 
 class Settings extends React.Component {
     state = {
-        components: ['Room','Sources','Destinations','Program Audio','Displays', 'Audio','Touch Panel'],
+        components: ['Room','Physical IO','Sources','Destinations','Program Audio','Displays', 'Audio','Touch Panel','Configuration'],
         selectedComponent: 'Sources',
         showAccount: false,
         username: '',
@@ -44,6 +44,7 @@ class Settings extends React.Component {
                     selectedComponent={this.state.selectedComponent}
                     configuration={this.props.configuration}
                     modal={this.state.modal}
+                    io={this.props.io}
                     // methods
                     handleConfigurationArrayChange={this.props.handleConfigurationArrayChange}
                     handleConfigurationArrayAppend={this.props.handleConfigurationArrayAppend}

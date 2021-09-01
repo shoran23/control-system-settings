@@ -13,6 +13,9 @@ class App extends React.Component {
         password: '',
         configuration: {
             name: '',
+            io: {
+                midpoints: [],
+            },
             sources: [],
             destinations: [],
             displays: [],
@@ -95,7 +98,6 @@ class App extends React.Component {
         })
     }
     render() {
-        console.log('configuration = ',this.state.configuration)
         return (
             <div id='app'>
                 {this.state.signin ?
@@ -103,6 +105,7 @@ class App extends React.Component {
                         // states
                         configuration={this.state.configuration}    
                         username={this.state.username}
+                        io={this.state.io}
                         // methods
                         handleConfigurationArrayChange={this.handleConfigurationArrayChange}
                         handleConfigurationArrayAppend={this.handleConfigurationArrayAppend}

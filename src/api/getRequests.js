@@ -47,7 +47,20 @@ export let getDestinations = () => {
         fetch(address + port + '/destinations', {
             method: 'GET',
             headers: {
-                'Accept': 'applications',
+                'Accept': 'applications/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+    )
+}
+// midpoints get request
+export let getMidpoints = () => {
+    return (
+        fetch(address + port + '/midpoints', {
+            method: 'GET',
+            headers: {
+                'Accept': 'applications/json',
                 'Content-Type': 'application/json'
             }
         })
