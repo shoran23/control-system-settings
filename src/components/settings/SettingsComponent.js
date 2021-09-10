@@ -17,6 +17,7 @@ class SettingsComponent extends React.Component {
                     configuration={this.props.configuration}
                     // methods
                     handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
+                    handleConfigurationMidpointTransmitterChange={this.props.handleConfigurationMidpointTransmitterChange}
                 />
             )
             case 'Sources':  return (

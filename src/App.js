@@ -69,17 +69,24 @@ class App extends React.Component {
         configuration.io.midpoints = midpoints
         this.setState({configuration})
     }
+    handleConfigurationMidpointTransmitterChange = (midpointIndex,inputIndex,transmitter) => {
+        let configuration = this.state.configuration
+        configuration.io.midpoints[midpointIndex].inputs[inputIndex].transmitters.push(transmitter)
+        this.setState({configuration})
+    }
     // API
     getApi = (route) => {
         get(route)
         .then(resJson => {
+            console.log('resJson = ',resJson)
             let configuration = {}
             if(route === '') {
-                configuration = resJson[route]
+                configuration = resJson.configuration
             } else {
                 configuration[route] = resJson[route]
             }
             this.setState({configuration})
+            console.log('configuration response = ',configuration)
         })
     }
     postApi = (route) => {
@@ -102,6 +109,7 @@ class App extends React.Component {
         })
     }
     render() {
+        console.log('configuration = ',this.state.configuration)
         return (
             <div id='app'>
                 {this.state.signin ?
@@ -119,6 +127,7 @@ class App extends React.Component {
                         handleStateApp={this.handleState}
                         handleConfigurationKeyItem={this.handleConfigurationKeyItem}
                         handleConfigurationIoMidpointChange={this.handleConfigurationIoMidpointChange}
+                        handleConfigurationMidpointTransmitterChange={this.handleConfigurationMidpointTransmitterChange}
                     />
                 :
                     <Welcome
@@ -134,6 +143,10 @@ class App extends React.Component {
                 }
             </div>
         )
+    }
+    componentDidMount() {
+        let windowLocation = window.location.href
+        console.log('windowLocation = ',windowLocation)
     }
 }
 export default App

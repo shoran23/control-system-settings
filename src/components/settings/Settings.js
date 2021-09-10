@@ -6,7 +6,6 @@ import SettingsComponent from './SettingsComponent'
 import SettingsFooter from './SettingsFooter'
 import SettingsAccount from './SettingsAccount'
 import './settings.scss'
-import {get} from '../../api/getRequests'
 
 class Settings extends React.Component {
     state = {
@@ -55,6 +54,7 @@ class Settings extends React.Component {
                     handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
                     handleConfigurationThreeKeys={this.props.handleConfigurationThreeKeys}
                     handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
+                    handleConfigurationMidpointTransmitterChange={this.props.handleConfigurationMidpointTransmitterChange}
                 />
                 <SettingsFooter/>
                 {this.state.showAccount ?

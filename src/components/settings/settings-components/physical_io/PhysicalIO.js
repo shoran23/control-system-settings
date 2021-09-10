@@ -27,6 +27,7 @@ class PhysicalIO extends React.Component {
                         selectedMidpoint={this.state.selectedMidpoint}
                         // methods
                         handleSelectedMidpoint={this.handleSelectedMidpoint}
+                        handleConfigurationMidpointTransmitterChange={this.props.handleConfigurationMidpointTransmitterChange}
                     />  
                 }
             </div>

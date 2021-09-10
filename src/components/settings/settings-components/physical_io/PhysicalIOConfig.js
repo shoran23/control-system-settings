@@ -1,5 +1,5 @@
 import React from 'React'
-import {getMidpoints} from '../../../../api/getRequests'
+import {get} from '../../../../api/getRequests'
 
 class MidpointIndexItem extends React.Component {
     render() {
@@ -18,7 +18,11 @@ class SystemMidpointIndexItem extends React.Component {
             <div className='physical-io-midpoint-system-index'>
                 <p>{this.props.midpoint.make}</p>
                 <p>{this.props.midpoint.model}</p>
-                <button onClick={()=> this.props.handleSelectedMidpoint(this.props.midpoint)}>Settings</button>
+                {this.props.midpoint.additionalConfig ? 
+                    <button onClick={()=> this.props.handleSelectedMidpoint(this.props.midpoint)}>Settings</button>
+                :
+                    <React.Fragment/>
+                }
                 <button onClick={()=> this.props.handleRemoveFromSystem(this.props.index)}>Remove</button>
             </div>
         )
@@ -31,7 +35,7 @@ class PhysicalIOConfig extends React.Component {
         searchText: ''
     }
     retrieveMidpoints = () => {
-        getMidpoints()
+        get('midpoints')
         .then(resJson => {
             this.setState({midpoints: resJson.midpoints})
         })
