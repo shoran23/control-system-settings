@@ -12,13 +12,13 @@ class Destination extends React.Component {
             <React.Fragment>
                 {this.props.selectedDestination === this.props.index ?
                     <div className='component-list-item-active' onClick={()=> this.props.handleState('selectedDestination',this.props.index)}>
-                        <h3>Name: {this.props.destination.name}</h3>
-                        <p>Route Join: {this.props.destination.routeJoin}</p>
+                        <h3 className='component-list-item-title'>{`Destination ${this.props.index + 1}:`}</h3>
+                        <p>{this.props.destination.name}</p>
                     </div>
                 :
-                    <div className='component-list-item-inactive' onClick={()=> this.props.handleState('selectedDestination',this.props.index)}>
-                        <h3>Name: {this.props.destination.name}</h3>
-                        <p>Route Join: {this.props.destination.routeJoin}</p>
+                    <div className='component-list-item-inactive' onClick={()=> this.props.handleState('selectedDestination',this.props.index)}>            
+                        <h3 className='component-list-item-title'>{`Destination ${this.props.index + 1}:`}</h3>
+                        <p>{this.props.destination.name}</p>
                     </div>
                 }
             </React.Fragment>

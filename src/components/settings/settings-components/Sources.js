@@ -11,17 +11,13 @@ class Source extends React.Component {
             <React.Fragment>
                 {this.props.selectedSource === this.props.index ?
                     <div id={`source-active-${this.props.index}`} className='component-list-item-active' onClick={()=> this.props.handleSourceSelect(this.props.index)}>
-                        <h3>Name: {this.props.source.name}</h3>
-                        {this.props.source.switcherInputs.map((switcherInput,index) => (
-                            <p>{`Switcher Input ${index + 1}: ${switcherInput}`}</p>    
-                        ))}
+                        <h3 className='component-list-item-title'>{`Source ${this.props.index}:`}</h3>
+                        <p>{this.props.source.name}</p>
                     </div>
                 :
                     <div id={`source-inactive-${this.props.index}`} className='component-list-item-inactive' onClick={()=> this.props.handleSourceSelect(this.props.index)}>
-                        <h3>Name: {this.props.source.name}</h3>
-                        {this.props.source.switcherInputs.map((switcherInput,index) => (
-                            <p>{`Switcher Input ${index + 1}: ${switcherInput}`}</p>    
-                        ))}
+                        <h3 className='component-list-item-title'>{`Source ${this.props.index}:`}</h3>
+                        <p>{this.props.source.name}</p>
                     </div>
                 }
             </React.Fragment>
