@@ -4,12 +4,13 @@ import {port} from './requestData'
 // universal get request
 export let get = route => {
     return (
-        fetch(address /*+ port*/ + '/cws/settings/' + route, {
+        fetch(address + port + '/cws/settings/' + route, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
+                'Content-Type': 'application/json',
+                'Content-Security-Policy': 'connect-src self'
+            },
         })
         .then(res => res.json())
     )
