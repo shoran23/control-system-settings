@@ -11,6 +11,8 @@ export let get = route => {
                 'Content-Type': 'application/json',
                 'Content-Security-Policy': 'connect-src self'
             },
+            mode: 'CORS',
+            
         })
         .then(res => res.json())
     )
