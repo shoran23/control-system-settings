@@ -10,7 +10,7 @@ export let get = route => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Content-Security-Policy': 'connect-src self'
-            },
+            }
         })
         .then(res => res.json())
     )
