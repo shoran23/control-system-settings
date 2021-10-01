@@ -11,6 +11,8 @@ class App extends React.Component {
         signinMessage: '',
         username: '',
         password: '',
+        address: '',
+        dev: false,
         configuration: {
             name: '',
             io: {
@@ -76,7 +78,11 @@ class App extends React.Component {
     }
     // API
     getApi = (route) => {
-        get(route)
+        let port = ''
+        if(this.state.dev === true) {
+            port = ':9001'
+        }
+        get(this.state.address,port,route)
         .then(resJson => {
             console.log('resJson = ',resJson)
             let configuration = {}
@@ -91,12 +97,16 @@ class App extends React.Component {
     }
     postApi = (route) => {
         let body = {}
+        let port = ''
         if(route === '') {
             body = this.state.configuration
         } else {
             body = this.state.configuration[route]
         }
-        post(route,body)
+        if(this.state.dev === true) {
+            port = ':9001'
+        }
+        post(this.state.address,port,route,body)
         .then(resJson => console.log(resJson))
         .then(resJson => {
             let configuration = {}
@@ -109,7 +119,6 @@ class App extends React.Component {
         })
     }
     render() {
-        console.log('configuration = ',this.state.configuration)
         return (
             <div id='app'>
                 {this.state.signin ?
@@ -146,7 +155,10 @@ class App extends React.Component {
     }
     componentDidMount() {
         let windowLocation = window.location.href
-        console.log('windowLocation = ',windowLocation)
+        let scheme = windowLocation.substring(0,windowLocation.search('://') + 3)
+        let windowLocationMinusScheme = windowLocation.replace(scheme,'')
+        let host = windowLocationMinusScheme.substring(0,windowLocationMinusScheme.search(':'))
+        this.setState({address: scheme + host})
     }
 }
 export default App
