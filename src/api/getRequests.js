@@ -15,19 +15,6 @@ export let get = route => {
         .then(res => res.json())
     )
 }
-// configuration get request
-export let getConfiguration = () => {
-    return (
-        fetch(address + port + '/configuration', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-    )
-}
 // sources get request
 export let getSources = () => {
     return (
