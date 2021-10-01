@@ -4,7 +4,7 @@ import {port} from './requestData'
 // universal get request
 export let get = route => {
     return (
-        fetch(address + port + '/cws/settings/' + route, {
+        fetch(address + '/cws/settings/' + route, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
