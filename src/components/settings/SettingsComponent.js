@@ -15,9 +15,13 @@ class SettingsComponent extends React.Component {
                 <PhysicalIO
                     // states
                     configuration={this.props.configuration}
+                    address={this.props.address}
+                    dev={this.props.dev}
                     // methods
                     handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
                     handleConfigurationMidpointTransmitterChange={this.props.handleConfigurationMidpointTransmitterChange}
+                    getApi={this.props.getApi}
+                    postApi={this.props.postApi}
                 />
             )
             case 'Sources':  return (

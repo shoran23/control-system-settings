@@ -76,7 +76,6 @@ class App extends React.Component {
         configuration.io.midpoints[midpointIndex].inputs[inputIndex].transmitters.push(transmitter)
         this.setState({configuration})
     }
-    // API
     getApi = (route) => {
         let port = ''
         if(this.state.dev === true) {
@@ -119,6 +118,7 @@ class App extends React.Component {
         })
     }
     render() {
+        console.log('address = ',this.state.address)
         return (
             <div id='app'>
                 {this.state.signin ?
@@ -126,6 +126,8 @@ class App extends React.Component {
                         // states
                         configuration={this.state.configuration}    
                         username={this.state.username}
+                        address={this.state.address}
+                        dev={this.state.dev}
                         // methods
                         handleConfigurationArrayChange={this.handleConfigurationArrayChange}
                         handleConfigurationArrayAppend={this.handleConfigurationArrayAppend}
@@ -157,7 +159,18 @@ class App extends React.Component {
         let windowLocation = window.location.href
         let scheme = windowLocation.substring(0,windowLocation.search('://') + 3)
         let windowLocationMinusScheme = windowLocation.replace(scheme,'')
-        let host = windowLocationMinusScheme.substring(0,windowLocationMinusScheme.search(':'))
+        let host = ''
+        if(windowLocationMinusScheme.search(':') > -1) {
+            host = windowLocationMinusScheme.substring(0,windowLocationMinusScheme.search(':'))
+        } else {
+            host = windowLocationMinusScheme.substring(0,windowLocationMinusScheme.search('/'))
+        }
+
+        console.log('windowLocation = ',windowLocation)
+        console.log('scheme = ',scheme)
+        console.log('host = ',host)
+
+
         this.setState({address: scheme + host})
     }
 }

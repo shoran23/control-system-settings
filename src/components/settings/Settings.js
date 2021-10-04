@@ -43,6 +43,8 @@ class Settings extends React.Component {
                     selectedComponent={this.state.selectedComponent}
                     configuration={this.props.configuration}
                     modal={this.state.modal}
+                    address={this.props.address}
+                    dev={this.props.dev}
                     // methods
                     handleConfigurationArrayChange={this.props.handleConfigurationArrayChange}
                     handleConfigurationArrayAppend={this.props.handleConfigurationArrayAppend}

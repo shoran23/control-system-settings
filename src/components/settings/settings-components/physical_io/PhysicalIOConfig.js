@@ -1,5 +1,6 @@
 import React from 'React'
-import {get} from '../../../../api/getRequests'
+
+import {get} from "../../../../api/getRequests"
 
 class MidpointIndexItem extends React.Component {
     render() {
@@ -34,12 +35,6 @@ class PhysicalIOConfig extends React.Component {
         midpointResults: [],
         searchText: ''
     }
-    retrieveMidpoints = () => {
-        get('midpoints')
-        .then(resJson => {
-            this.setState({midpoints: resJson.midpoints})
-        })
-    }
     handleSearchMidpoints = () => {
         let midpointResults = []
         for(let midpoint of this.state.midpoints) {
@@ -67,7 +62,18 @@ class PhysicalIOConfig extends React.Component {
         midpoints.splice(index,1)
         this.props.handleConfigurationIoMidpointChange(midpoints)
     }
+    getMidpoints = () => {
+        let port = ''
+        if(this.props.dev === true) {
+            port = ':9001'
+        }
+        get(this.props.address,port,'midpoints')
+        .then(resJson => {
+            console.log('resJson = ',resJson)
+        })
+    }
     render() {
+        console.log('address = ',this.props.address)
         return (
             <div className='component'>
                 <div className='component-header'>
@@ -148,7 +154,7 @@ class PhysicalIOConfig extends React.Component {
         )
     }
     componentDidMount() {
-        this.retrieveMidpoints()
+        setTimeout(()=> this.getMidpoints(),200)
     }
 }
 export default PhysicalIOConfig
