@@ -9,6 +9,12 @@ export let post = (address,port,route,body) => {
             },
             body: JSON.stringify(body)
         })
-        .then(res => res.json())
+        .then(res => {
+            console.log('post res = ',res)
+            if(!res.ok) {
+                throw Error(res.statusText)
+            }
+            res.json()
+        })
     )
 }
