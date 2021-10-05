@@ -91,7 +91,6 @@ class App extends React.Component {
                 configuration[route] = resJson
             }
             this.setState({configuration})
-            console.log('configuration response = ',configuration)
         })
     }
     postApi = (route) => {
@@ -106,8 +105,8 @@ class App extends React.Component {
             port = ':9001'
         }
         post(this.state.address,port,route,body)
-        .then(resJson => console.log(resJson))
         .then(resJson => {
+            console.log('post resJson = ',resJson)
             let configuration = {}
             if(route === '') {
                 configuration = resJson
