@@ -86,7 +86,7 @@ class App extends React.Component {
             console.log('resJson = ',resJson)
             let configuration = {}
             if(route === '') {
-                configuration = resJson.configuration
+                configuration = resJson
             } else {
                 configuration[route] = resJson
             }
@@ -110,7 +110,7 @@ class App extends React.Component {
         .then(resJson => {
             let configuration = {}
             if(route === '') {
-                configuration = resJson[bodyKey]
+                configuration = resJson
             } else {
                 configuration[route] = resJson[route]
             }
