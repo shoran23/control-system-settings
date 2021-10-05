@@ -1,4 +1,6 @@
 import React from 'react'
+
+import Room from './settings-components/Room'
 import PhysicalIO from './settings-components/physical_io/PhysicalIO'
 import Sources from './settings-components/Sources'
 import Destinations from './settings-components/Destinations'
@@ -11,6 +13,17 @@ import ConfigurationMain from './settings-components/configuration/Configuration
 class SettingsComponent extends React.Component {
     returnSelectedComponent = component => {
         switch(component) {
+            case 'Room': return (
+                <Room
+                    // states
+                    configuration={this.props.configuration}
+                    address={this.props.address}
+                    dev={this.props.dev}
+                    // methods
+                    getApi={this.props.getApi}
+                    postApi={this.props.postApi}
+                />
+            )
             case 'Physical IO': return (
                 <PhysicalIO
                     // states

@@ -44,6 +44,7 @@ class Sources extends React.Component {
     render() {
         return (
             <div id='sources' className='component'>
+
                 <div id='sources-header' className='component-header'>
                     <h1>System Sources</h1>
                     <div className='component-header-buttons'>
@@ -52,6 +53,7 @@ class Sources extends React.Component {
                         <button id='sources-add' className='component-add-button' onClick={()=> this.props.handleConfigurationArrayAppend('sources',emptySource)}>Add Source</button>
                     </div>
                 </div>
+            
                 <div id='sources-body' className='component-body'>
                     <div id='sources-list' className='component-list'>
                         {this.props.sources.map((source,index) => (
