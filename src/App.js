@@ -88,7 +88,7 @@ class App extends React.Component {
             if(route === '') {
                 configuration = resJson
             } else {
-                configuration[route] = resJson
+                configuration[route] = resJson[route]
             }
             this.setState({configuration})
         })
