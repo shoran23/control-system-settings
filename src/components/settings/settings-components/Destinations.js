@@ -5,7 +5,6 @@ const emptyDestination = {
     name: '',
     routeJoin: 0,
 }
-
 class Destination extends React.Component {
     render() {
         return (

@@ -118,7 +118,6 @@ class App extends React.Component {
         })
     }
     render() {
-        console.log('address = ',this.state.address)
         return (
             <div id='app'>
                 {this.state.signin ?
@@ -165,12 +164,6 @@ class App extends React.Component {
         } else {
             host = windowLocationMinusScheme.substring(0,windowLocationMinusScheme.search('/'))
         }
-
-        console.log('windowLocation = ',windowLocation)
-        console.log('scheme = ',scheme)
-        console.log('host = ',host)
-
-
         this.setState({address: scheme + host})
     }
 }

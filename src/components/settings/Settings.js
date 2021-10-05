@@ -73,7 +73,7 @@ class Settings extends React.Component {
         )
     }
     componentDidMount() {
-        setTimeout(() => this.props.getApi(''),100)
+        //setTimeout(() => this.props.getApi(''),100)
     }
 }
 export default Settings
