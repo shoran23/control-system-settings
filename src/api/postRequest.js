@@ -14,7 +14,7 @@ export let post = (address,port,route,body) => {
             if(!res.ok) {
                 throw Error(res.statusText)
             }
-            res.json()
+            //res.json()
         })
     )
 }

@@ -108,16 +108,16 @@ class App extends React.Component {
             port = ':9001'
         }
         post(this.state.address,port,route,body)
-        .then(resJson => {
-            console.log('post resJson = ',resJson)
-            let configuration = {}
-            if(route === '') {
-                configuration = resJson
-            } else {
-                configuration[route] = resJson[route]
-            }
-            this.setState({configuration})
-        })
+        // .then(resJson => {
+        //     console.log('post resJson = ',resJson)
+        //     let configuration = {}
+        //     if(route === '') {
+        //         configuration = resJson
+        //     } else {
+        //         configuration[route] = resJson[route]
+        //     }
+        //     this.setState({configuration})
+        // })
     }
     render() {
         return (
