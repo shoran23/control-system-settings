@@ -30,6 +30,9 @@ class App extends React.Component {
             touchPanel: {
                 primaryColor: '',
                 secondaryColor: ''
+            },
+            room: {
+                name: ''
             }
         },
     }
@@ -99,7 +102,7 @@ class App extends React.Component {
         if(route === '') {
             body = this.state.configuration
         } else {
-            body = this.state.configuration[route]
+            body = {[route]: this.state.configuration[route]}
         }
         if(this.state.dev === true) {
             port = ':9001'

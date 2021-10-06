@@ -3,6 +3,8 @@ import React from 'react'
 import './settings-components.scss'
 
 class Room extends React.Component {
+
+
     render() {
         return (
             <div className='component'>
@@ -17,7 +19,15 @@ class Room extends React.Component {
 
                 <div className='component-body'>
 
-                    
+                    <form id='room-form'>
+                        <label htmlFor='name'>Room Name</label>
+                        <input 
+                            type='text' 
+                            name='name' 
+                            //value={this.props.room.name}
+                            //onChange={}
+                        />
+                    </form>
 
                 </div>
             </div>
