@@ -87,7 +87,7 @@ class App extends React.Component {
         get(this.state.address,port,route)
         .then(resJson => {
             console.log('resJson = ',resJson)
-            let configuration = {}
+            let configuration = this.state.configuration
             if(route === '') {
                 configuration = resJson
             } else {
