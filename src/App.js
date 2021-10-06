@@ -14,7 +14,6 @@ class App extends React.Component {
         address: '',
         dev: false,
         configuration: {
-            name: '',
             io: {
                 midpoints: [],
             },
@@ -32,7 +31,9 @@ class App extends React.Component {
                 secondaryColor: ''
             },
             room: {
-                name: ''
+                name: '',
+                passCode: null,
+                number: ''
             }
         },
     }

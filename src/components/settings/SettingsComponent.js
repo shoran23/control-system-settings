@@ -20,6 +20,7 @@ class SettingsComponent extends React.Component {
                     address={this.props.address}
                     dev={this.props.dev}
                     // methods
+                    handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
                     getApi={this.props.getApi}
                     postApi={this.props.postApi}
                 />

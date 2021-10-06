@@ -57,6 +57,7 @@ class Settings extends React.Component {
                     handleConfigurationThreeKeys={this.props.handleConfigurationThreeKeys}
                     handleConfigurationIoMidpointChange={this.props.handleConfigurationIoMidpointChange}
                     handleConfigurationMidpointTransmitterChange={this.props.handleConfigurationMidpointTransmitterChange}
+                    handleConfigurationKeyItem={this.props.handleConfigurationKeyItem}
                 />
                 <SettingsFooter/>
                 {this.state.showAccount ?

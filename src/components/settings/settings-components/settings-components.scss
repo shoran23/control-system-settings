@@ -117,13 +117,29 @@
     height: 20%;
     @extend %form-row-space-between;
 }
-.component-form-delete {
+.component-form-delete { 
     width: 40%;
     height: 8%;
     @extend %close-button;    
 }
 .component-form-delete:active {
     @extend %close-button-clicked;    
+}
+/* room specific *************************************************************************************/
+#room-component-form {
+    align-items: flex-start;
+}
+.room-form-column {
+    width: 30%;
+    height: 25%;
+    @extend %form-column-centered;
+    align-items: flex-start;
+    margin-left: 2%;
+}
+.room-form-input {
+    width: 90%;
+    height: 30%;
+    margin-top: 5px;
 }
 /* touch panel specfic *******************************************************************************/
 .touch-panel-colors {
@@ -133,7 +149,6 @@
     justify-content: space-evenly;
     align-items: center;
 }
-
 /* physical io specific ******************************************************************************/
 #physical-io-component-body {
     flex-direction: column;
