@@ -30,11 +30,13 @@ class App extends React.Component {
                 primaryColor: '',
                 secondaryColor: ''
             },
-            rooms: {
-                name: '',
-                passCode: null,
-                number: ''
-            }
+            rooms: [
+                {
+                    name: '',
+                    passCode: null,
+                    number: ''
+                }
+            ]
         },
     }
     handleState = (key,value) => {

@@ -42,8 +42,8 @@ class Room extends React.Component {
                                     className='room-form-input'
                                     type='text' 
                                     placeholder='Example: 1234'
-                                    name='passcode' 
-                                    value={room.passcode}
+                                    name='passCode' 
+                                    value={room.passCode}
                                     onChange={this.handleRoomChange(index)}
                                 />
                             </div>
