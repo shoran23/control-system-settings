@@ -4,10 +4,13 @@ import './settings-components.scss'
 
 class Room extends React.Component {
 
-    handleRoomChange = e => {
-        this.props.handleConfigurationKeyItem('room',e.target.name,e.target.value)
+    handleRoomChange = index => e => {
+        let rooms = this.props.configuration.rooms
+        rooms[index][e.target.name] = e.target.value
+        this.props.handleConfigurationKeyItem('rooms',rooms)
     }
     render() {
+        console.log('config = ',this.props.configuration)
         return (
             <div className='component'>
 
@@ -20,46 +23,43 @@ class Room extends React.Component {
                 </div>
 
                 <div className='component-body'>
-
-                    <form className='component-form' id='room-component-form'>
-
-                        <div className='room-form-column'>
-                            <label htmlFor='name'>Room Name</label>
-                            <input 
-                                className='room-form-input'
-                                type='text' 
-                                placeholder='Example: "Classroom 101"'
-                                name='name' 
-                                value={this.props.configuration.room.name}
-                                onChange={this.handleRoomChange}
-                            />
-                        </div>
-
-                        <div className='room-form-column'>
-                            <label htmlFor='passcode'>Room Passcode</label>
-                            <input 
-                                className='room-form-input'
-                                type='number' 
-                                placeholder='Example: 1234'
-                                name='passcode' 
-                                value={this.props.configuration.room.passcode}
-                                onChange={this.handleRoomChange}
-                            />
-                        </div>
-                        
-                        <div className='room-form-column'>
-                            <label htmlFor='number'>Room Phone Number</label>
-                            <input 
-                                className='room-form-input'
-                                type='text'
-                                placeholder='Example: (123)456-7890'
-                                name='number' 
-                                value={this.props.configuration.room.number}
-                                onChange={this.handleRoomChange}
-                            />
-                        </div>
-
-                    </form>
+                    {this.props.configuration.rooms.map((room,index) => (
+                        <form className='component-form' id='room-component-form'>
+                            <div className='room-form-column'>
+                                <label htmlFor='name'>Room Name</label>
+                                <input 
+                                    className='room-form-input'
+                                    type='text' 
+                                    placeholder='Example: "Classroom 101"'
+                                    name='name' 
+                                    value={room.name}
+                                    onChange={this.handleRoomChange(index)}
+                                />
+                            </div>
+                            <div className='room-form-column'>
+                                <label htmlFor='passcode'>Room Passcode</label>
+                                <input 
+                                    className='room-form-input'
+                                    type='text' 
+                                    placeholder='Example: 1234'
+                                    name='passcode' 
+                                    value={room.passcode}
+                                    onChange={this.handleRoomChange(index)}
+                                />
+                            </div>
+                            <div className='room-form-column'>
+                                <label htmlFor='number'>Room Phone Number</label>
+                                <input 
+                                    className='room-form-input'
+                                    type='text'
+                                    placeholder='Example: (123)456-7890'
+                                    name='number' 
+                                    value={room.number}
+                                    onChange={this.handleRoomChange(index)}
+                                />
+                            </div>
+                        </form>
+                    ))}
                 </div>
             </div>
         )

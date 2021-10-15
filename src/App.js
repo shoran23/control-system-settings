@@ -30,7 +30,7 @@ class App extends React.Component {
                 primaryColor: '',
                 secondaryColor: ''
             },
-            room: {
+            rooms: {
                 name: '',
                 passCode: null,
                 number: ''
