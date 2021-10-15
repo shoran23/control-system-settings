@@ -17,8 +17,8 @@ class Room extends React.Component {
                 <div className='component-header'>
                     <h1>Room</h1>
                     <div className='component-header-buttons'>
-                        <button className='component-button' onClick={()=> this.props.getApi('room')}>Pull From Processor</button>
-                        <button className='component-button' onClick={()=> this.props.postApi('room')}>Send To Processor</button>
+                        <button className='component-button' onClick={()=> this.props.getApi('rooms')}>Pull From Processor</button>
+                        <button className='component-button' onClick={()=> this.props.postApi('rooms')}>Send To Processor</button>
                     </div>
                 </div>
 
